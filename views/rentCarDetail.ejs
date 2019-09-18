@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="/public/stylesheets/rentCarDetail.css">
+    <title>CarHub: รถเช่า เปรียบเทียบราคา จุดรับ-ส่งรถหลายแห่งทั่วประเทศ CarHub.com</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/customer/<%= customer._id%>">CarHub</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/<%= customer._id%>">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/MyProfile/<%= customer._id%>">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/MyBooking/<%= customer._id%>">My Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- header and navbar -->
+
+    <section>
+
+        <div class="car-detail-main-content">
+            <div class="container">
+                <div class="car-img-brand">
+                    <div class="card">
+                        <img class="card-img-top" src="<%= vehicle.image%>" alt="" height="200">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= vehicle.brand%> - <%= vehicle.model%></h5>
+                            <span><small>THB</small></span>
+                            <span class="primary-price"><%= vehicle.daily_rate%></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-detail-block">
+                    <div class="main-detail">
+                        <div class="container">
+                            <div class="rental-detail">
+                                <div class="rental-detail-header">
+                                    <h4>รายละเอียดการเช่ารถ</h4>
+                                </div>
+                                <div class="rental-detail-items">
+                                    <div class="rental-detail-group">
+                                        <div class="rental-detail-item">
+                                            <p><i class="far fa-check-circle"></i> คืนรถช้าได้ 1.30 ชม. </p>
+                                        </div>
+                                        <div class="rental-detail-item">
+                                            <p><i class="far fa-check-circle"></i> ประกันการโจรกรรม </p>
+                                        </div>
+                                        <div class="rental-detail-item">
+                                            <p><i class="far fa-check-circle"></i> ประกันค่าเสียหายส่วนแรก </p>
+                                        </div>
+                                    </div>
+                                    <div class="rental-detail-group">
+                                        <div class="rental-detail-item">
+                                            <p><i class="far fa-check-circle"></i> ประกันภัยบุคคลที่ 3 </p>
+                                        </div>
+                                        <div class="rental-detail-item">
+                                            <p><i class="far fa-check-circle"></i> บริการช่วยเหลือฉุกเฉิน </p>
+                                        </div>
+                                        <div class="rental-detail-item">
+                                            <p><i class="far fa-check-circle"></i> คืนเงิน 100% เมือทำการยกเลิกภายใน
+                                                1 วัน</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rental-accessory-detail">
+                                    <p><strong>อุปกรณ์เสริม : </strong>GPS, Baby seat</p>
+                                </div>
+                                <div class="retal-important-detail">
+                                    <a href="#" target="_blank">ข้อมูลสำคัญ <i
+                                            class="fas fa-exclamation-circle"></i></a>
+                                </div>
+                            </div>
+                            <div class="car-model-detail">
+                                <div class="car-model-detail-header">
+                                    <h4>รายละเอียดรถยนต์</h4>
+                                </div>
+                                <div class="car-model-detail-items">
+                                    <div class="car-model-detail-item">
+                                        <h6>ปีที่จดทะเบียน</h6>
+                                        <span><%= vehicle.year%></span>
+                                        <hr>
+                                    </div>
+                                    <div class="car-model-detail-item">
+                                        <h6>เชื้อเพลิงที่ใช์</h6>
+                                        <span><%= vehicle.fuel%></span>
+                                        <hr>
+                                    </div>
+                                    <div class="car-model-detail-item">
+                                        <h6>ระบบเกียร์</h6>
+                                        <span><%= vehicle.gear%></span>
+                                        <hr>
+                                    </div>
+                                    <div class="car-model-detail-item">
+                                        <h6>จำนวนผู้โดยสาร</h6>
+                                        <span><%= vehicle.capacity%></span>
+                                        <hr>
+                                    </div>
+                                    <div class="car-model-detail-item">
+                                        <h6>ประเภทรถยนต์</h6>
+                                        <span><%= vehicle.types%></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-detail">
+                                <div class="comment-detail-header">
+                                    <h4>รีวิวจากผู้เช่า</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-details">
+                        <div class="container">
+                            <span style="display: none" id="locations"><%= JSON.stringify(locations);%></span>
+                            <form action="/customer/ReservationForm/<%= customer._id%>/<%= vehicle._id%>"
+                                autocomplete="off" method="get">
+                                <div class="location-time-items">
+                                    <div class="location-item">
+                                        <div class="form-group">
+                                            <label for="locationPick">สถานที่รับรถ-คืนรถ</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fas fa-map-marker-alt input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="text" name="locationPick"
+                                                    id="locationPick" value="<%= locationPick%>" required>
+                                            </div>
+                                            <ul class="list-group" id="locationList"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="time-item">
+                                        <div class="form-group">
+                                            <label for="startDate">เวลารับรถ</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fas fa-calendar-alt input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="text" name="startDate" id="startDate"
+                                                    value="<%= startDate%>" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="endDate">เวลาคืนรถ</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fas fa-calendar-alt input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="text" name="endDate" id="endDate"
+                                                    value="<%= endDate%>" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-detail-groups">
+                                    <div class="price-detail-group">
+                                        <div class="form-group">
+                                            <span>ค่าเช่ารถ/วัน(<%= diffDays%>วัน)</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span><%= rentPrice%></span>
+                                        </div>
+                                    </div>
+                                    <div class="price-detail-group">
+                                        <div class="form-group">
+                                            <span><strong>ราคารวม</strong></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span><strong><%= rentPrice%></strong></span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="deposit-detail">
+                                    <div class="deposit-detail-header">
+                                        <span><i class="fas fa-shield-alt"></i><strong>
+                                                ค่ามัดจำประกันค่าความเสียหาย ฿3,000</strong></span>
+                                    </div>
+                                    <div class="deposit-detail-footer">
+                                        <span><small>(ชำระในวันที่รับรถและรับคืนเมื่อคืนรถโดยไม่มีความเสียหาย)</small></span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <button class="btn btn-block btn-outline-info" type="submit">SUBMIT</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- main content -->
+
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="footer-content">
+                <div class="footer-contact-item">
+                    <h4>Contact Us</h4>
+                    <div class="follow-us">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="footer-services">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#" taget="_blank">รถเช่าระยะยาว</a></li>
+                        <li><a href="#" taget="_blank">จองรถอย่างไร?</a></li>
+                        <li><a href="#" taget="_blank">สิทธิพิเศษสำหรับสมาชิก</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about-company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">เกี่ยวกับบริษัท</a></li>
+                        <li><a href="#" target="_blank">เงื่อนไขการใช้บริการ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright-container">
+                <div class="copyright-text">
+                    <p>Copyright @ 2019 CarHub - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js">
+    </script>
+    <script src="/public/javascripts/searchRentalCar.js"></script>
+</body>
+
+</html>

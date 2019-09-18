@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+}
+
+.invoice-main-content {
+    margin: 25px 25px;
+    border: 1px solid #333333;
+    padding: 5px;
+}
+
+.invoice-content-header {
+    margin-top: 15px;
+}
+
+.signature {
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+.conditional {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.button-group {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.button-group a {
+    width: 15%;
+}

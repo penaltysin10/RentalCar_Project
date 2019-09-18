@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html{
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+body {
+    display: block;
+    margin: 8px;
+}
+nav{
+    width: 100%;
+}
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+div {
+    display: block;
+}
+.container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #eeeeee;
+}
+.wrap-login100 {
+    width: 560px;
+}
+.p-b-160 {
+    padding-bottom: 160px;
+}
+.p-t-50 {
+    padding-top: 50px;
+}
+.login100-form {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+}
+.login100-form-title {
+    width: 100%;
+    display: block;
+    font-family: OpenSans-Regular;
+    font-size: 30px;
+    color: #333333;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+}
+.p-b-43 {
+    padding-bottom: 43px;
+}
+.wrap-input100.rs1 {
+    border-top-left-radius: 12px;
+    border-right: none;
+}
+.validate-input {
+    position: relative;
+}
+.wrap-input100 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: 100%;
+    height: 75px;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    background-color: #fff;
+}
+input.input100 {
+    height: 100%;
+    transition: all 0.4s;
+}
+.input100 {
+    font-family: OpenSans-Bold;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 0 30px;
+}
+input {
+    outline: none;
+    border: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.label-input100 {
+    font-family: OpenSans-Bold;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    padding-left: 30px;
+    left: 0;
+    top: 28px;
+    transition: all 0.4s;
+}
+.wrap-input100.rs2 {
+    border-top-right-radius: 12px;
+}
+.container-login100-form-btn {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.login100-form-btn {
+    font-family: OpenSans-Bold;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 70px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+    background: #111111;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+}
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+.w-full {
+    width: 100%;
+}
+.text-center {
+    text-align: center;
+}
+.p-t-23 {
+    padding-top: 23px;
+}
+.text-center {
+    text-align: center!important;
+}
+

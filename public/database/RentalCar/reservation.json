@@ -1,0 +1,28 @@
+{
+    "_id": {
+        "$oid": "5d6d54e6fc8e120560144ecf"
+    },
+    "name_taxpayer": "",
+    "address_taxpayer": "",
+    "taxpayer_id": "",
+    "flight_number": "",
+    "other_info": "",
+    "reservation_number": "2F09T31BPKX-2019/9/3",
+    "customer_id": "5d6d0d4bc930861b88e1f3ea",
+    "car_id": "5d6d10209487e43a10fb7f19",
+    "booking_date": "2019/9/3 0:44",
+    "start_date": "2019/09/05 10:00",
+    "end_date": "2019/09/07 10:00",
+    "location": "ท่าอากาศยานขอนแก่น",
+    "total_price": {
+        "$numberDouble": "2514.5"
+    },
+    "insurance_type": "standard",
+    "firstname": "kittipich",
+    "lastname": "chaimool",
+    "email": "chelsea_ks@outlook.com",
+    "tel": "0899965454",
+    "__v": {
+        "$numberInt": "0"
+    }
+}

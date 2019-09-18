@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/stylesheets/customerPayment.css">
+    <title>Payment: รถเช่า เปรียบเทียบราคา จุดรับ-ส่งรถหลายแห่งทั่วประเทศ CarHub.com</title>
+</head>
+
+<body>
+    <!-- header start -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/customer/<%= customer._id%>">CarHub</a>
+        </nav>
+    </header>
+    <!-- header end -->
+
+    <section>
+        <!-- sidebar and payment form -->
+        <div class="main-content-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="payment-form-block">
+                            <form
+                                action="/customer/InvoiceForm/<%= customer._id%>/<%= vehicle._id%>/<%= reservation._id%>"
+                                method="get" autocomplete="off">
+                                <div class="payment-header-details">
+                                    <img src="/public/images/creditcardicons.png" alt="" width="100%">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="emailText">Email</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="far fa-envelope input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="email" name="emailText" id="emailText"
+                                                    value="<%= reservation.email%>">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="telephone">Tel</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fas fa-phone-square input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="tel" name="telephone" id="telephone"
+                                                    value="<%= reservation.tel%>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="nameOnCard">Name On Card</label>
+                                            <input class="form-control" type="text" name="nameOnCard" id="nameOnCard"
+                                                value="<%= reservation.firstname%> <%= reservation.lastname%>">
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="cardNo">Card Number</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="far fa-credit-card input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="text" name="cardNo" id="cardNo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="expDate">Expiry Date</label>
+                                            <input class="form-control" type="text" name="expDate" id="expDate">
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="cvvCode">CVV Code</label>
+                                            <input class="form-control" type="text" name="cvvCode" id="cvvCode">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <a class="btn btn-primary btn-block btn-outline-danger"
+                                            href="/customer/CancelPayment/<%= customer._id%>/<%= reservation._id%>">Cancel</a>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <button class="btn btn-primary btn-block btn-success"
+                                            type="submit">Confirm</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- payment form -->
+
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="footer-content">
+                <div class="footer-contact-item">
+                    <h4>Contact Us</h4>
+                    <div class="follow-us">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="footer-services">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#" taget="_blank">รถเช่าระยะยาว</a></li>
+                        <li><a href="#" taget="_blank">จองรถอย่างไร?</a></li>
+                        <li><a href="#" taget="_blank">สิทธิพิเศษสำหรับสมาชิก</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about-company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">เกี่ยวกับบริษัท</a></li>
+                        <li><a href="#" target="_blank">เงื่อนไขการใช้บริการ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright-container">
+                <div class="copyright-text">
+                    <p>Copyright @ 2019 CarHub - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

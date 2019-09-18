@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+        integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/public/stylesheets/companyReport.css">
+    <title>CarHub: Company Admin, Report</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="/company/<%= companyAdmin._id%>" class="navbar-brand">Company Admin</a>
+            <ul class="navbar-nav navbar-top ml-auto">
+                <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-profile-name fas fa-user-circle"><%= companyAdmin.company_id%></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="/user/company">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav navbar-bottom mx-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-primary" href="/company/<%= companyAdmin._id%>">Dashboard <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/company/listCar/<%= companyAdmin._id%>">Manage Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/company/manageLocation/<%= companyAdmin._id%>">Manage
+                            Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary link-report"
+                            href="/company/report/<%= companyAdmin._id%>">Report</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="booking-report-content">
+            <div class="container">
+                <div class="content-header">
+                    <h4>BOOKING REPORT</h4>
+                    <hr>
+                </div>
+                <div class="main-content">
+                    <div class="search-report">
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-5">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" name="invoiceNo" id="invoiceNo"
+                                        placeholder="Enter Invoice Number">
+                                    <div class="input-group-append">
+                                        <i class="fas fa-search input-group-text" aria-hidden="true"></i>
+                                    </div>
+                                    <a class="btn btn-info" href="/company/report/<%= companyAdmin._id%>/invoiceNumber/"
+                                        id="searchInvoice" style="margin-left: 15px;">SEARCH</a>
+                                </div>
+                                <span class="text-danger"><%= typeof error != 'undefined'? error.msg : ''%></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 col-md-2">
+                                <div class="input-group">
+                                    <select class="form-control" name="rangeSearch" id="rangeSearch">
+                                        <option selected disabled>Selected</option>
+                                        <option value="/company/report/<%= companyAdmin._id%>">All</option>
+                                        <option value="/company/reportWeek/<%= companyAdmin._id%>">Week</option>
+                                        <option value="/company/reportMonth/<%= companyAdmin._id%>">Month</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <i class="fas fa-bars input-group-text" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-report-booking" id="listReport">
+                        <table class="table table-striped" style="text-align: center;text-transform: uppercase;">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Invoice Number</th>
+                                    <th>Reservation Number</th>
+                                    <th>Email</th>
+                                    <th>Tel</th>
+                                    <th>Brand</th>
+                                    <th>Model</th>
+                                    <th>Booking Date</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% invoices.forEach(function(invoice){%>
+                                <% reservations.forEach(function(reservation){%>
+                                <% if(invoice.reservation_id == reservation._id){%>
+                                <% vehicles.forEach(function(vehicle){%>
+                                <% if(invoice.car_id == vehicle._id){%>
+                                <tr>
+                                    <td><%= invoice.invoice_number%></td>
+                                    <td><%= reservation.reservation_number%></td>
+                                    <td><%= invoice.email%></td>
+                                    <td><%= invoice.tel%></td>
+                                    <td><%= vehicle.brand%></td>
+                                    <td><%= vehicle.model%></td>
+                                    <td><%= invoice.booking_date%></td>
+                                    <td><%= invoice.total_price%></td>
+                                    <td><a href="/company/invoiceDetail/<%= companyAdmin._id%>/<%= invoice._id%>"><i
+                                                class="fas fa-search"></i></a></td>
+                                </tr>
+                                <% }%>
+                                <% });%>
+                                <% }%>
+                                <% });%>
+                                <% });%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="print-report">
+                    <button class="btn btn-primary" type="button" id="printReport">PRINT</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="/public/javascripts/searchReport.js"></script>
+</body>
+
+</html>

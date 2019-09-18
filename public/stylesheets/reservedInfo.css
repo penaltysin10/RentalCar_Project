@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul.navbar-nav li {
+    text-transform: uppercase;
+}
+
+ul.navbar-nav li:hover {
+    background: #dcdddd;
+    border-radius: 5px;
+    transition: .3s ease-in-out;
+}
+
+/* header */
+
+body {
+    background-color: #eff3f3;
+}
+
+.user-detail-groups {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* information-user */
+.user-detail-items {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 10px;
+    box-shadow: 0 0 5px #333333;
+}
+
+.other-reserved-detail-item .info-name-lastname,
+.other-reserved-detail-item .info-email-tel {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0.5rem;
+}
+
+.tax-invoice-detail-item .form-group,
+.flight-number-detail-item .form-group {
+    width: 50%;
+}
+
+/* information-total-price */
+.price-info-items {
+    width: 50%;
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 10px;
+    box-shadow: 0 0 5px #333333;
+}
+
+.price-info-item {
+    display: inline-block;
+}
+
+/* footer&copyright  */
+footer {
+    width: 100%;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 10px auto;
+}
+
+.footer-content div h4 {
+    text-transform: uppercase;
+}
+
+.follow-us i {
+    font-size: 2rem;
+    margin: 0 3px;
+}
+
+.footer-services ul li {
+    list-style: none;
+}
+
+.footer-services ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.footer-about-company ul li {
+    list-style: none;
+}
+
+.footer-about-company ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.copyright {
+    width: 100%;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+.copyright-text {
+    text-align: center;
+}

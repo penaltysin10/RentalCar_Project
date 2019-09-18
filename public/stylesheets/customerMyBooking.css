@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+.container{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+ul.navbar-nav li{
+    text-transform: uppercase;
+}
+ul.navbar-nav li:hover{
+    background: #dcdddd;
+    border-radius: 5px;
+    transition: .3s ease-in-out;
+}
+/* header */
+
+.list-booking-details{
+    margin: 30px 0 30px 0;
+    text-align: center;
+    align-content: center;
+    display: grid;
+    color: lightgray;
+}
+
+/* footer&copyright  */
+footer{
+    width: 100%;
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 10px auto;
+}
+.footer-content div h4{
+    text-transform: uppercase;
+}
+.follow-us i{
+    font-size: 2rem;
+    margin: 0 3px;
+}
+.footer-services ul li{
+    list-style: none;
+}
+.footer-services ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.footer-about-company ul li{
+    list-style: none;
+}
+.footer-about-company ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.copyright{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+.copyright-text{
+    text-align: center;
+}

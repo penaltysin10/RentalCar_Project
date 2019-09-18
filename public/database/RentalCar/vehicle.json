@@ -1,0 +1,103 @@
+{
+    "_id": {
+        "$oid": "5d6d10209487e43a10fb7f19"
+    },
+    "model_id": {
+        "$numberDecimal": "1"
+    },
+    "brand": "subaru",
+    "model": "wrx",
+    "gear": "manual",
+    "year": "2018",
+    "types": "sport",
+    "fuel": "diesel",
+    "capacity": "4",
+    "daily_rate": {
+        "$numberDecimal": "1100"
+    },
+    "image": "/public/images/cars/subaru_wrx_2018.png"
+} {
+    "_id": {
+        "$oid": "5d6d17fee07a7417689df818"
+    },
+    "model_id": {
+        "$numberInt": "2"
+    },
+    "brand": "ford",
+    "model": "ranger raptor",
+    "gear": "auto",
+    "year": "2019",
+    "types": "truck",
+    "fuel": "diesel",
+    "capacity": "5",
+    "daily_rate": {
+        "$numberInt": "1500"
+    },
+    "image": "/public/images/cars/ford_ranger_raptor_2019.png",
+    "__v": {
+        "$numberInt": "0"
+    }
+} {
+    "_id": {
+        "$oid": "5d6d183ce07a7417689df819"
+    },
+    "model_id": {
+        "$numberInt": "3"
+    },
+    "brand": "mitsubushi",
+    "model": "pajero sport",
+    "gear": "auto",
+    "year": "2016",
+    "types": "suv",
+    "fuel": "diesel",
+    "capacity": "6",
+    "daily_rate": {
+        "$numberInt": "1400"
+    },
+    "image": "/public/images/cars/mitsubishi_pajero_sport_2016.png",
+    "__v": {
+        "$numberInt": "0"
+    }
+} {
+    "_id": {
+        "$oid": "5d6d1869e07a7417689df81a"
+    },
+    "model_id": {
+        "$numberInt": "4"
+    },
+    "brand": "ford",
+    "model": "focus sel",
+    "gear": "auto",
+    "year": "2018",
+    "types": "compact",
+    "fuel": "gas",
+    "capacity": "4",
+    "daily_rate": {
+        "$numberInt": "1000"
+    },
+    "image": "/public/images/cars/ford_focus_sel_2018.png",
+    "__v": {
+        "$numberInt": "0"
+    }
+} {
+    "_id": {
+        "$oid": "5d6d18d8e07a7417689df81b"
+    },
+    "model_id": {
+        "$numberInt": "5"
+    },
+    "brand": "mitsubishi",
+    "model": "lancer evolution ex",
+    "gear": "manual",
+    "year": "2015",
+    "types": "sport",
+    "fuel": "gasohol 91",
+    "capacity": "4",
+    "daily_rate": {
+        "$numberInt": "1100"
+    },
+    "image": "/public/images/cars/mitsubishi_lancer_evolutionEx_2015.png",
+    "__v": {
+        "$numberInt": "0"
+    }
+}

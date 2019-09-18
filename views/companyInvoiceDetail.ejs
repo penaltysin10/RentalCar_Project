@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+    integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/public/stylesheets/companyInvoiceDetail.css" />
+  <title>CarHub: Company Admin, Report</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a href="/company/<%= companyAdmin._id%>" class="navbar-brand">Company Admin</a>
+      <ul class="navbar-nav navbar-top ml-auto">
+        <li class="nav-item nav-profile dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="nav-profile-name fas fa-user-circle"><%= companyAdmin.company_id%></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="profileDropdown">
+            <a class="dropdown-item" href="/user/company">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav navbar-bottom mx-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-primary" href="/company/<%= companyAdmin._id%>">Dashboard <span
+                class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="/company/listCar/<%= companyAdmin._id%>">Manage Car</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="/company/manageLocation/<%= companyAdmin._id%>">Manage Location</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary link-report" href="/company/report/<%= companyAdmin._id%>">Report</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <div class="invoice-main-content" id="mainContent">
+      <div class="container">
+        <div class="row invoice-content-header">
+          <div class="col-sm-12 col-md-6 company-address">
+            <h4>CARHUBTEST Co., Ltd</h4>
+            <span>
+              Address: 10313 New Petchaburi Rd.<br />
+              Khwaeng Makkasan Khet Ratchathewi<br />
+              Bangkok 10400 Thailand<br />
+              Email: carhubtest@gmail.com<br />
+              Tel: 023456789
+            </span>
+          </div>
+          <div class="col-sm-12 col-md-6 invoice-number">
+            <br />
+            <h6>Invoice #: <%= invoice.invoice_number%></h6>
+            <input type="hidden" id="invoiceNumber" value="<%= invoice.invoice_number%>" />
+          </div>
+        </div>
+        <hr />
+        <div class="row customer-information">
+          <div class="col-sm-12 col-md-6">
+            <h5>Bill To</h5>
+            <h6>Name: <%= invoice.firstname%> <%= invoice.lastname%></h6>
+            <h6>Email: <%= invoice.email%></h6>
+            <h6>Tel: <%= invoice.tel%></h6>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <h6>Location: <%= invoice.location%></h6>
+            <h6>Booking Date: <%= invoice.booking_date%></h6>
+            <h6>Start Date: <%= invoice.start_date%></h6>
+            <h6>End Date: <%= invoice.end_date%></h6>
+          </div>
+        </div>
+        <div class="row car-description">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">รายการ</th>
+                <th scope="col">ราคา</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= vehicle.brand%>(<%= vehicle.model%>) x 1</td>
+                <td><%= rentPrice%></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+        <div class="row cost-detail">
+          <div class="col-sm-6 col-md-6">
+            <h6>ราคาเช่ารถ</h6>
+            <h6>ภาษีมูลค่าเพิ่ม</h6>
+            <h5>ราคารวม</h5>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <h6><%= rentPrice%></h6>
+            <h6><%= vat%></h6>
+            <h5><%= invoice.total_price%></h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row signature">
+          <div class="col-sm-6 col-md-6 customer-signature">
+            <h6><%= invoice.firstname%> <%= invoice.lastname%></h6>
+            <hr width="360" />
+            <h6>ชื่อผู้ใช้(Customer Signature)</h6>
+          </div>
+          <div class="col-sm-6 col-md-6 company-signature">
+            <h6>CARHUBTEST Co., Ltd.</h6>
+            <hr width="360" />
+            <h6>ชื่อผู้รับเงิน(Authorized Sign & Csahiers)</h6>
+          </div>
+        </div>
+        <div class="row conditional">
+          <div class="col-sm-12 col-md-12">
+            <ul>
+              เงื่อนไขสำหรับผู้เช่า :
+              <li>ผู้เช่าต้องมีอายุไม่ต่ำกว่า 21ปี</li>
+              <li>
+                ผู้เช่าต้องมีใบขับขี่ที่มีอายุไม่ต่ำกว่า 1ปี หรือ
+                มีใบขับขี่สากลที่ยังไม่หมดอายุ
+              </li>
+              <li>ผู้เช่าต้องแสดงใบเสร็จตัวจริง ณ สถานที่ในวันรับรถ</li>
+              <li>
+                ผู้เช้าต้องเสียค่ามัดจำ 3,000 บาท
+                ในวันที่รับรถและได้คืนเมื่อวันคืนรถโดยที่รถไม่มีความเสียหาย
+              </li>
+              <li>ผู้เช่าสามารถคืนรถล่าช้าได้ภายใน 1.30 ชม.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="button-group">
+        <a href="/company/report/<%= companyAdmin._id%>" class="btn btn-outline-secondary">Back</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

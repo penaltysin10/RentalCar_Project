@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/stylesheets/reservedInfo.css">
+    <title>CarHub: รถเช่า เปรียบเทียบราคา จุดรับ-ส่งรถหลายแห่งทั่วประเทศ CarHub.com</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/customer/<%= customer._id%>">CarHub</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/<%= customer._id%>">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/MyProfile/<%= customer._id%>">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/MyBooking/<%= customer._id%>">My Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- header and navbar -->
+
+    <section class="main-user-details">
+        <div class="container">
+            <form action="/customer/PaymentForm/<%= customer._id%>/<%= vehicle._id%>" method="get" autocomplete="off">
+                <div class="user-detail-groups">
+                    <div class="user-detail-group">
+                        <div class="container">
+                            <div class="user-detail-items">
+                                <div class="insurance-package-detail-item">
+                                    <h6>แพ็คเกจประกันภัยการคุ้มครอง</h6>
+                                    <div class="form-group">
+                                        <input type="radio" name="insurance" value="standard" checked><span>
+                                            ประกันภัยมาตรฐาน <a href="#"><i
+                                                    class="fas fa-exclamation-circle"></i></a></span>
+                                        <span>
+                                            หากเกิดอุบัติเหตุที่ผู้เช่ารถเป็นฝ่ายผิด
+                                            ผู้เช่ารถจะต้องจ่ายค่าเสียหายส่วนแรกจำนวน 3,000 - 30,000บาท
+                                            โดยขึ้นอยู่กับความเสียหายที่เกิดขึ้นและระยะเวลาในการซ่อมรถยนต์
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="radio" name="insurance" value="premium"><span>
+                                            ประกันภัยพรีเมี่ยม-฿500 <a href="#"><i
+                                                    class="fas fa-exclamation-circle"></i></a></span>
+                                        <span>
+                                            หากเกิดอุบัติเหตุที่ผู้เช่ารถเป็นฝ่ายผิด
+                                            ผู้เช่ารถไม่ต้องจ่ายค่าเสียหายใดๆที่เกิดขึ้น
+                                        </span>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="other-reserved-detail-item">
+                                    <div class="form-group">
+                                        <div class="check-other-reserved">
+                                            <input type="checkbox" name="otherReserve" id="otherReserve" checked><span>
+                                                จองรถให้กับคนอื่น</span>
+                                        </div>
+                                        <span><small>(*** กรอกข้อมูลชื่อ-นามสกุลเป็นภาษาอังกฤษ ***)</small></span>
+                                    </div>
+                                    <div class="info-name-lastname">
+                                        <div class="form-group">
+                                            <label for="firstname">ชื่อจริง</label>
+                                            <input class="form-control" type="text" name="firstname" id="firstname">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastname">นามสกุล</label>
+                                            <input class="form-control" type="text" name="lastname" id="lastname">
+                                        </div>
+                                    </div>
+                                    <div class="info-email-tel">
+                                        <div class="form-group">
+                                            <label for="emailInput">Email</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fas fa-envelope input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="email" name="emailInput"
+                                                    id="emailInput">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telInput">เบอร์ติดต่อ</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fas fa-phone-square input-group-text"></i>
+                                                </div>
+                                                <input class="form-control" type="tel" name="telInput" id="telInput">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="tax-invoice-detail-item">
+                                    <div class="form-group">
+                                        <input type="checkbox" name="taxInvoice" id="taxInvoice" checked>
+                                        <span>คุณต้องการใบกำกับภาษี?</span>
+                                    </div>
+                                    <div class="form-group name-taxpayer">
+                                        <label for="nameTaxPayer">ชื่อ-นามสกุล/ชื่อบริษัท</label>
+                                        <input class="form-control" type="text" name="nameTaxPayer" id="nameTaxPayer">
+                                    </div>
+                                    <div class="form-group address-taxpayer">
+                                        <label for="addressTaxPayer">ที่อยู่</label>
+                                        <input class="form-control" type="text" name="addressTaxPayer"
+                                            id="addressTaxPayer">
+                                    </div>
+                                    <div class="form-group taxpayer-id">
+                                        <label for="taxPayerID">เลขประจำตัวผู้เสียภาษี</label>
+                                        <input class="form-control" type="text" name="taxPayerID" id="taxPayerID">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="flight-number-detail-item">
+                                    <div class="form-group">
+                                        <label for="flightNumber">หมายเลขเที่ยวบิน (ถ้ามี)</label>
+                                        <input class="form-control" type="text" name="flightNumber" id="flightNumber">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="other-info-detail-item">
+                                    <div class="form-group">
+                                        <label for="otherInfo">ข้อมูลเพิ่มเติม</label>
+                                        <div class="other-info-area" style="width: 50%;">
+                                            <textarea class="form-control" name="otherInfo" id="otherInfo" cols="50"
+                                                rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-detail-group">
+                        <div class="container">
+                            <div class="price-info-items">
+                                <div class="price-info-item-location">
+                                    <div class="form-group">
+                                        <h6>สถานที่รับและคืนรถ</h6>
+                                        <input type="text" id="locationPick" name="locationPick"
+                                            value="<%= locationPick%>" style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="price-info-item-startdate">
+                                    <div class="form-group">
+                                        <h6>วันและเวลารับรถ</h6>
+                                        <input type="text" id="startDate" name="startDate" value="<%= startDate%>"
+                                            style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="price-info-item-enddate">
+                                    <div class="form-group">
+                                        <h6>วันและเวลาคืนรถ</h6>
+                                        <input type="text" id="endDate" name="endDate" value="<%= endDate%>"
+                                            style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="price-info-item">
+                                    <div class="form-group">
+                                        <h6>ค่าเช่ารถ</h6>
+                                        <span>฿ </span>
+                                        <input type="text" id="rentPrice" name="rentPrice" value="<%= rentPrice%>"
+                                            style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="price-info-item">
+                                    <div class="form-group">
+                                        <h6>ประกันภัย</h6>
+                                        <span>฿ </span>
+                                        <input type="text" id="insurancePrice" name="insurancePrice"
+                                            style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="price-info-item">
+                                    <div class="form-group">
+                                        <h6>ภาษีมูลค่าเพิ่ม</h6>
+                                        <span>฿ </span>
+                                        <input type="text" id="vat" name="vat" style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="price-info-item">
+                                    <div class="form-group">
+                                        <h6><strong>ราคารวม</strong></h6>
+                                        <span><strong>฿ </strong></span>
+                                        <input type="text" id="totalPrice" name="totalPrice" style="border: none;">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="btn-submit-form">
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-outline-info" type="submit">SUBMIT</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contact-item">
+                    <h4>Contact Us</h4>
+                    <div class="follow-us">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="footer-services">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#" taget="_blank">รถเช่าระยะยาว</a></li>
+                        <li><a href="#" taget="_blank">จองรถอย่างไร?</a></li>
+                        <li><a href="#" taget="_blank">สิทธิพิเศษสำหรับสมาชิก</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about-company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">เกี่ยวกับบริษัท</a></li>
+                        <li><a href="#" target="_blank">เงื่อนไขการใช้บริการ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright-container">
+                <div class="copyright-text">
+                    <p>Copyright @ 2019 CarHub - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="/public/javascripts/reservedInfo.js"></script>
+
+</body>
+
+</html>

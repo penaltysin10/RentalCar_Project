@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="/public/stylesheets/customerIndex.css">
+    <title>Home: รถเช่า เปรียบเทียบราคา จุดรับ-ส่งรถหลายแห่งทั่วประเทศ CarHub.com</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/customer/<%= customer._id%>">CarHub</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/<%= customer._id%>">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/MyProfile/<%= customer._id%>">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer/MyBooking/<%= customer._id%>">My Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="content-header">
+            <div class="container">
+                <div class="content-header-img">
+                    <h2>เช่ารถ จองรถได้ง่ายๆ เพียงจองกับเรา</h2>
+                    <div class="content-header-search">
+                        <span style="display: none" id="locations"><%= JSON.stringify(locations);%></span>
+                        <form action="/customer/SearchResult/<%= customer._id%>" method="get">
+                            <div class="form-search-available-car">
+                                <div class="form-group">
+                                    <label for="locationPick">เลือกจุดรับ-คืนรถ</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <i class="fas fa-search-location input-group-text"></i>
+                                        </div>
+                                        <input class="form-control" type="text" name="locationPick" id="locationPick"
+                                            placeholder="กรุณาเลือกสถานที่รับ-ส่งรถ" required>
+                                    </div>
+                                    <ul class="list-group" id="locationList"></ul>
+                                </div>
+                                <div class="form-group">
+                                    <label for="startDate">วันและเวลารับรถ</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <i class="far fa-calendar-alt input-group-text"></i>
+                                        </div>
+                                        <input class="form-control" type="text" name="startDate" id="startDate"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endDate">วันและเวลาคืนรถ</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <i class="far fa-calendar-alt input-group-text"></i>
+                                        </div>
+                                        <input class="form-control" type="text" name="endDate" id="endDate" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block btn-success">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-services">
+            <div class="container">
+                <hr>
+                <h4>Why CarHub?</h4>
+                <div class="content-services-item">
+                    <div class="services-item">
+                        <i class="far fa-heart"></i>
+                        <h5>คุ้มค่า คุ้มราคา</h5>
+                    </div>
+                    <div class="services-item">
+                        <i class="fas fa-car-side"></i>
+                        <h5>บริษัทรถเช่ามากมายและมีคุณภาพ</h5>
+                    </div>
+                    <div class="services-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h5>ช่องทางชำระเงินหลากหลาย</h5>
+                    </div>
+                    <div class="services-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h5>จุดรับส่งมากมายทั่วประเทศ</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-payment">
+            <div class="container">
+                <hr>
+                <div class="content-payment-item">
+                    <div class="payment-item">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-item">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <div class="payment-item">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <div class="payment-item">
+                        <i class="fab fa-cc-mastercard"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="footer-content">
+                <div class="footer-contact-item">
+                    <h4>Contact Us</h4>
+                    <div class="follow-us">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="footer-services">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#" taget="_blank">รถเช่าระยะยาว</a></li>
+                        <li><a href="#" taget="_blank">จองรถอย่างไร?</a></li>
+                        <li><a href="#" taget="_blank">สิทธิพิเศษสำหรับสมาชิก</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about-company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">เกี่ยวกับบริษัท</a></li>
+                        <li><a href="#" target="_blank">เงื่อนไขการใช้บริการ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright-container">
+                <div class="copyright-text">
+                    <p>Copyright @ 2019 CarHub - All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js">
+    </script>
+    <script src="/public/javascripts/searchRentalCar.js"></script>
+
+</body>
+
+</html>

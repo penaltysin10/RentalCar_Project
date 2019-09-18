@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul.navbar-nav li {
+    text-transform: uppercase;
+}
+
+ul.navbar-nav li:hover {
+    background: #dcdddd;
+    border-radius: 5px;
+    transition: .3s ease-in-out;
+}
+
+/* header */
+
+/* main content */
+.car-detail-main-content {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.car-img-brand {
+    width: 60%;
+    text-transform: uppercase;
+}
+
+.car-detail-block {
+    margin-top: 2rem;
+}
+
+/* car details and price details */
+.car-detail-block {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 2rem;
+}
+
+.rental-detail {
+    background-color: transparent;
+    box-shadow: 0px 5px 10px #333333;
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+.rental-detail-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+    margin-top: 10px;
+}
+
+.car-model-detail {
+    background-color: transparent;
+    box-shadow: 0px 5px 10px #333333;
+    padding: 10px;
+    border-radius: 1rem;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+.car-model-detail-items {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-row-gap: 1rem;
+}
+
+.comment-detail {
+    background-color: transparent;
+    box-shadow: 0px 0px 10px #333333;
+    padding: 10px;
+    border-radius: 1rem;
+    margin-top: 30px;
+}
+
+.price-details form {
+    background-color: transparent;
+    box-shadow: 5px 0px 10px #333333;
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+.time-item {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 1rem;
+}
+
+.price-detail-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 12rem;
+}
+
+.deposit-detail {
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+
+/* footer&copyright  */
+footer {
+    width: 100%;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 10px auto;
+}
+
+.footer-content div h4 {
+    text-transform: uppercase;
+}
+
+.follow-us i {
+    font-size: 2rem;
+    margin: 0 3px;
+}
+
+.footer-services ul li {
+    list-style: none;
+}
+
+.footer-services ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.footer-about-company ul li {
+    list-style: none;
+}
+
+.footer-about-company ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.copyright {
+    width: 100%;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+.copyright-text {
+    text-align: center;
+}

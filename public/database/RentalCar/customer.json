@@ -1,0 +1,40 @@
+{
+    "_id": {
+        "$oid": "5d6d0d4bc930861b88e1f3ea"
+    },
+    "credit_card": "",
+    "firstname": "kittipich",
+    "lastname": "chaimool",
+    "email": "chelsea_ks@outlook.com",
+    "password": "0987654321",
+    "tel": "0899965454",
+    "__v": {
+        "$numberInt": "0"
+    }
+} {
+    "_id": {
+        "$oid": "5d6d1c4be07a7417689df827"
+    },
+    "credit_card": "",
+    "firstname": "david",
+    "lastname": "herdes",
+    "email": "herdes.david@gmail.com",
+    "password": "1234567890",
+    "tel": "9999999999",
+    "__v": {
+        "$numberInt": "0"
+    }
+} {
+    "_id": {
+        "$oid": "5d6d4ee4fc8e120560144ece"
+    },
+    "credit_card": "",
+    "firstname": "john",
+    "lastname": "swandee",
+    "email": "john.sd@gmail.com",
+    "password": "1122334455",
+    "tel": "0873502114",
+    "__v": {
+        "$numberInt": "0"
+    }
+}

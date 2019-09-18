@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #e8e8e8;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+}
+
+.general-information {
+    text-align: center;
+    margin: 25px auto;
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    box-shadow: 5px 5px 0 #d4d4d4;
+}
+
+.number-customer,
+.number-vehicle,
+.number-location {
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+.number-customer h3,
+.number-vehicle h3,
+.number-location h3 {
+    font-weight: bold;
+}
+
+.number-customer .number,
+.number-vehicle .number,
+.number-location .number {
+    font-weight: 500;
+    font-size: 48px;
+}
+
+.monthly-information,
+.total-information {
+    text-align: center;
+    margin: 25px auto;
+    width: 100%;
+}
+
+.number-monthlyIncome,
+.number-monthlyBooking,
+.number-totalIncome,
+.number-totalBooking {
+    padding: 10px;
+    background-color: whitesmoke;
+    margin-left: 35px;
+    margin-right: 35px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 5px 5px 0 #d4d4d4;
+}
+
+.number-monthlyIncome h3,
+.number-monthlyBooking h3,
+.number-totalIncome h3,
+.number-totalBooking h3 {
+    font-weight: bold;
+}
+
+.number-monthlyIncome .number,
+.number-monthlyBooking .number,
+.number-totalIncome .number,
+.number-totalBooking .number {
+    font-weight: 500;
+    font-size: 48px;
+}
+
+.number-monthlyIncome .number span i,
+.number-totalIncome .number span i {
+    color: goldenrod;
+}

@@ -1,0 +1,11 @@
+{
+    "_id": {
+        "$oid": "5d6d16e1576eec0670de1a40"
+    },
+    "company_id": "carhubtest",
+    "password": "admin",
+    "name": "CARHUBTEST Co., Ltd",
+    "email": "carhubtest@gmail.com",
+    "tel": "023456789",
+    "address": "10313 New Petchaburi Rd. Khwaeng Makkasan Khet Ratchathewi Bangkok 10400 Thailand"
+}

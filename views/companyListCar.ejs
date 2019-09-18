@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+        integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/public/stylesheets/companyListCar.css">
+    <title>CarHub:Company Admin, List Car</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="/company/<%= companyAdmin._id%>" class="navbar-brand">Company Admin</a>
+            <ul class="navbar-nav navbar-top ml-auto">
+                <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-profile-name fas fa-user-circle"><%= companyAdmin.company_id%></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="/user/company">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav navbar-bottom mx-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-primary" href="/company/<%= companyAdmin._id%>">Dashboard <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/company/listCar/<%= companyAdmin._id%>">Manage Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/company/manageLocation/<%= companyAdmin._id%>">Manage
+                            Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/company/report/<%= companyAdmin._id%>">Report</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="main-content-block">
+        <div class="container">
+            <h4>Management Car</h4>
+            <a href="/company/createCar/<%= companyAdmin._id%>" class="btn btn-outline-primary"><i
+                    class="fas fa-plus"></i>Create New Car</a>
+            <hr>
+            <div class="table-report">
+                <table class="table table-striped text-center" style="justify-content: center;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Images</th>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Gear</th>
+                            <th>Years</th>
+                            <th>Types</th>
+                            <th>Fuel</th>
+                            <th>Capacity</th>
+                            <th>Price/Day</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var car of list_car) { %>
+                        <tr>
+                            <td><img src="<%= car.image%>" width="200px" alt=""></td>
+                            <td><%= car.brand%></td>
+                            <td><%= car.model%></td>
+                            <td><%= car.gear%></td>
+                            <td><%= car.year%></td>
+                            <td><%= car.types%></td>
+                            <td><%= car.fuel%></td>
+                            <td><%= car.capacity%></td>
+                            <td><%= car.daily_rate%></td>
+                            <td>
+                                <a href="/company/listCar/<%= companyAdmin._id%>/edit/<%= car._id%>"><i
+                                        class="fas fa-edit fa-lg" aria-hidden="true"></i></a>
+                                <a href="/company/listCar/<%= companyAdmin._id%>/delete/<%= car._id%>"><i
+                                        class="fas fa-trash fa-lg"
+                                        onclick="return confirm('Are you sure want to delete car?');"
+                                        aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <%} %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

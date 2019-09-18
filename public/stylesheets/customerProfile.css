@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+.container{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+ul.navbar-nav li{
+    text-transform: uppercase;
+}
+ul.navbar-nav li:hover{
+    background: #dcdddd;
+    border-radius: 5px;
+    transition: .3s ease-in-out;
+}
+/* header */
+
+.profile-main-detail{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.profile-detail-items{
+    display: grid;
+    justify-content: center;
+    margin-top: 25px;
+}
+.profile-name-lastname{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0.5rem;
+}
+.button-input-edit-profile{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+
+/* footer&copyright  */
+footer{
+    width: 100%;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 10px auto;
+}
+.footer-content div h4{
+    text-transform: uppercase;
+}
+.follow-us i{
+    font-size: 2rem;
+    margin: 0 3px;
+}
+.footer-services ul li{
+    list-style: none;
+}
+.footer-services ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.footer-about-company ul li{
+    list-style: none;
+}
+.footer-about-company ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.copyright{
+    width: 100%;
+    background-color: #333333;
+    color: whitesmoke;
+    padding: 5px;
+}
+.copyright-text{
+    text-align: center;
+}
